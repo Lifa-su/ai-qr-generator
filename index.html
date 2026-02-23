@@ -133,6 +133,71 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.8rem;borde
 </div>
 </div>
 </main>
+<!-- Pro Section -->
+<style>
+.pro-section{max-width:960px;margin:24px auto;padding:0 1rem}
+.pro-label{display:flex;align-items:center;gap:8px;font-size:1rem;font-weight:700;color:var(--accent);margin-bottom:14px}
+.pro-blur-wrap{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;border:1px solid var(--border)}
+.pro-blur-content{filter:blur(5px);pointer-events:none;user-select:none;padding:20px;background:var(--bg2)}
+.pro-mock-row{display:flex;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.pro-mock-card{flex:1;min-width:180px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px}
+.pro-mock-card h4{font-size:.85rem;color:var(--accent);margin-bottom:10px}
+.pro-mock-bar{height:8px;background:var(--border);border-radius:4px;margin-bottom:6px}
+.pro-mock-bar.w60{width:60%}.pro-mock-bar.w80{width:80%}.pro-mock-bar.w45{width:45%}.pro-mock-bar.w70{width:70%}
+.pro-mock-line{height:12px;background:var(--border);border-radius:3px;margin-bottom:5px;width:90%}
+.pro-mock-line.short{width:55%}
+.pro-mock-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.pro-mock-qr{aspect-ratio:1;background:var(--border);border-radius:4px}
+.pro-mock-chart{display:flex;align-items:flex-end;gap:4px;height:50px;padding-top:10px}
+.pro-mock-chart-bar{flex:1;background:var(--accent);border-radius:3px 3px 0 0;opacity:.5}
+.pro-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(26,26,46,.5);transition:background .2s}
+.pro-blur-wrap:hover .pro-overlay{background:rgba(26,26,46,.65)}
+.pro-lock-icon{font-size:2.4rem;margin-bottom:8px}
+.pro-unlock-text{font-size:.95rem;color:#fff;font-weight:600;background:var(--accent);padding:8px 20px;border-radius:8px}
+.pro-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.pro-modal-bg.open{display:flex}
+.pro-modal{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:32px;max-width:440px;width:90%;text-align:center;animation:proIn .3s}
+.pro-modal h3{font-size:1.3rem;margin-bottom:6px}
+.pro-modal .pro-price{font-size:1.05rem;color:var(--accent);font-weight:700;margin-bottom:16px}
+.pro-modal ul{text-align:left;list-style:none;margin-bottom:20px}
+.pro-modal ul li{padding:8px 0;border-bottom:1px solid var(--border);font-size:.92rem;color:var(--text2)}
+.pro-modal ul li::before{content:'✓ ';color:#4ecca3;font-weight:700}
+.pro-btn-upgrade{display:block;width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;margin-bottom:10px;transition:background .2s}
+.pro-btn-upgrade:hover{background:#d63a52}
+.pro-btn-later{background:none;border:none;color:var(--text2);cursor:pointer;font-size:.9rem;padding:8px}
+.pro-btn-later:hover{color:var(--text)}
+@keyframes proIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+</style>
+<div class="pro-section">
+<div class="pro-label"><span>🔒</span> Pro Features</div>
+<div class="pro-blur-wrap" onclick="document.getElementById('proModal').classList.add('open')">
+<div class="pro-blur-content">
+<div class="pro-mock-row">
+<div class="pro-mock-card"><h4>📦 Batch Generation</h4><div class="pro-mock-grid"><div class="pro-mock-qr"></div><div class="pro-mock-qr"></div><div class="pro-mock-qr"></div><div class="pro-mock-qr"></div><div class="pro-mock-qr"></div><div class="pro-mock-qr"></div><div class="pro-mock-qr"></div><div class="pro-mock-qr"></div></div></div>
+<div class="pro-mock-card"><h4>⚡ Dynamic QR Codes</h4><div class="pro-mock-line"></div><div class="pro-mock-line short"></div><div class="pro-mock-bar w70"></div><div class="pro-mock-bar w45"></div></div>
+</div>
+<div class="pro-mock-row">
+<div class="pro-mock-card"><h4>📊 Scan Analytics</h4><div class="pro-mock-chart"><div class="pro-mock-chart-bar" style="height:30%"></div><div class="pro-mock-chart-bar" style="height:55%"></div><div class="pro-mock-chart-bar" style="height:80%"></div><div class="pro-mock-chart-bar" style="height:45%"></div><div class="pro-mock-chart-bar" style="height:90%"></div><div class="pro-mock-chart-bar" style="height:60%"></div><div class="pro-mock-chart-bar" style="height:70%"></div></div><div class="pro-mock-bar w80"></div></div>
+</div>
+</div>
+<div class="pro-overlay"><div class="pro-lock-icon">🔒</div><div class="pro-unlock-text">Click to unlock Pro features</div></div>
+</div>
+</div>
+<div class="pro-modal-bg" id="proModal" onclick="if(event.target===this)this.classList.remove('open')">
+<div class="pro-modal">
+<h3>QR Generator Pro</h3>
+<div class="pro-price">$14 — one-time purchase</div>
+<ul>
+<li>Batch generation — create hundreds of QR codes from CSV/list</li>
+<li>Dynamic QR codes — update destination URL without reprinting</li>
+<li>Scan analytics — track scans by location, device, time</li>
+<li>High-res export — vector PDF &amp; print-ready formats</li>
+<li>Lifetime access &amp; future updates</li>
+</ul>
+<a href="https://feifeicch.gumroad.com/l/ai-qr-generator-pro" target="_blank" class="pro-btn-upgrade">Upgrade to Pro — $14</a>
+<button class="pro-btn-later" onclick="document.getElementById('proModal').classList.remove('open')">Maybe later</button>
+</div>
+</div>
 <footer>
 <p>AI QR Generator &mdash; Free, open source QR code tool</p>
 </footer>
